@@ -76,7 +76,7 @@ function ReserveSlot({ safari }) {
     const totalPrice = unitPrice[1] * adultCount + unitPrice[0] * childCount;
     try {
       const res = await fetch(
-        `http://localhost:8000/api/rpay/lock-seats?adultCount=${adultCount}&childCount=${childCount}&totalPrice=${totalPrice}&totalPeople=${totalPeople}&date=${date}&safariId=${safariId}&slot=${slot}`
+        `http://3.111.234.190/api/rpay/lock-seats?adultCount=${adultCount}&childCount=${childCount}&totalPrice=${totalPrice}&totalPeople=${totalPeople}&date=${date}&safariId=${safariId}&slot=${slot}`
       );
       if (res.ok) {
         const data = await res.json();

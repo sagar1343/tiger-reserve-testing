@@ -11,7 +11,7 @@ export default function Bookings() {
     async function getBookings() {
       try {
         const res = await fetch(
-          `http://localhost:8000/api/dashboard/bookings?date=${date}`
+          `http://3.111.234.190/api/dashboard/bookings?date=${date}`
         );
         const data = await res.json();
         setBookings(data);

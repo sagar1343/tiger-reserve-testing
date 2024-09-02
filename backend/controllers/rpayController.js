@@ -6,7 +6,7 @@ import { User } from '../models/userModel.js'
 import { Booking } from '../models/bookingModel.js'
 import { Payment } from '../models/paymentModel.js'
 import { Safari } from '../models/safariModel.js'
-import { SafariAvailability } from '../models/SafariAvailabilityModel.js'
+import { SafariAvailability } from '../models/safariAvailabilityModel.js'
 import moment from 'moment-timezone'
 
 const razorpay = new Razorpay({
@@ -228,7 +228,7 @@ async function verifyPaymentHandler(req, res) {
         newBooking.status,
       ]
 
-      const emailRes = await fetch('http://localhost:8000/api/send-email', {
+      const emailRes = await fetch('http://3.111.234.190/api/send-email', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

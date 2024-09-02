@@ -1,30 +1,30 @@
-import React from 'react'
-import First from '../components/First'
-import Confirmation from '../components/Third'
-import { useEffect, useState } from 'react'
-import ShowDetails from '../components/ShowDetails'
-import scrollToTop from '@/utility/scrollToTop'
-import { useNavigate } from 'react-router-dom'
-import Timer from '@/components/Timmer'
-import { useBookingContext } from '@/context/BookingContext'
+import React from "react";
+import First from "../components/First";
+import Confirmation from "../components/Third";
+import { useEffect, useState } from "react";
+import ShowDetails from "../components/ShowDetails";
+import scrollToTop from "@/utility/scrollToTop";
+import { useNavigate } from "react-router-dom";
+import Timer from "@/components/Timmer";
+import { useBookingContext } from "@/context/BookingContext";
 
 const PaymentPage = () => {
-  const navigate = useNavigate()
-  const { setBookingId, setTimerStartAt } = useBookingContext()
+  const navigate = useNavigate();
+  const { setBookingId, setTimerStartAt } = useBookingContext();
 
   useEffect(() => {
-    scrollToTop()
-    if (!sessionStorage.getItem('bookingId')) {
-      navigate('/')
+    scrollToTop();
+    if (!sessionStorage.getItem("bookingId")) {
+      navigate("/");
     }
-  }, [])
+  }, []);
 
   // async function releaseSeats() {
   //   console.log('failed')
   //   const totalPeople = adultCount + childCount
   //   try {
   //     const res = await fetch(
-  //       `http://localhost:8000/api/rpay/release-seats?totalPeople=${totalPeople}&date=${date}&safariId=${safariId}&slot=${slot}`
+  //       `http://3.111.234.190/api/rpay/release-seats?totalPeople=${totalPeople}&date=${date}&safariId=${safariId}&slot=${slot}`
   //     )
   //     if (res.ok) {
   //       window.location.href = '/'
@@ -35,27 +35,27 @@ const PaymentPage = () => {
   // }
 
   const handleTimerComplete = () => {
-    console.log('Timer completed!')
-    sessionStorage.clear()
-    setBookingId(null)
-    setTimerStartAt(null)
-    navigate('/')
-  }
+    console.log("Timer completed!");
+    sessionStorage.clear();
+    setBookingId(null);
+    setTimerStartAt(null);
+    navigate("/");
+  };
 
-  const [currentStep, setCurrentStep] = useState(1)
+  const [currentStep, setCurrentStep] = useState(1);
   // const [showDetails, setShowDetails] = useState(false)
 
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    adhaar: '',
-    country: 'India',
-    passportNum: '',
-    expirationDate: '',
-    countryCode: '+91',
-  })
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    adhaar: "",
+    country: "India",
+    passportNum: "",
+    expirationDate: "",
+    countryCode: "+91",
+  });
   const showStep = (step) => {
     switch (step) {
       case 1:
@@ -68,11 +68,11 @@ const PaymentPage = () => {
           >
             <Timer onComplete={handleTimerComplete} />
           </First>
-        )
+        );
       default:
-        return null
+        return null;
     }
-  }
+  };
   return (
     <>
       {/* <div className='showdetail ms-10 mt-10 me-10 pe-5 flex justify-between'>
@@ -123,7 +123,7 @@ const PaymentPage = () => {
             <hr /> */}
       {showStep(currentStep)}
     </>
-  )
-}
+  );
+};
 
-export default PaymentPage
+export default PaymentPage;

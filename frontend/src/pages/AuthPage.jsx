@@ -15,7 +15,7 @@ function AuthPage({ setAuthenticated }) {
     setError(null);
 
     try {
-      const response = await fetch("http://localhost:8000/login", {
+      const response = await fetch("http://3.111.234.190/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
