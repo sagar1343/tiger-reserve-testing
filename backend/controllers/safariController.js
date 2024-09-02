@@ -1,7 +1,7 @@
 import _ from 'lodash'
 import { Safari, validateSafari } from '../models/safariModel.js'
 import moment from 'moment-timezone'
-import { SafariAvailability } from '../models/SafariAvailabilityModel.js'
+import { SafariAvailability } from '../models/safariAvailabilityModel.js'
 
 // Create
 async function createSafari(req, res) {
